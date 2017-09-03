@@ -1,13 +1,13 @@
 <div *ngFor="let product of products" class="col-md-4 col-sm-4 col-lg-4">
 	<div class="thumbnail">
-		<img src="">
+		<img [src]="imgUrl">
 		<div class="caption">
 			<h4>{{product.price}}</h4>
 			<h4><a href="">{{product.name}}</a></h4>
 			<p>{{product.desc}}</p>
 		</div>
 		<div>
-			<app-stars></app-stars>
+			<app-stars [rating] = "product.rating"></app-stars>
 		</div>
 	</div>
 </div>
