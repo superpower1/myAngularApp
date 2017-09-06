@@ -14,7 +14,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(private routeInfo: ActivatedRoute) { }
 
   ngOnInit() {
-  	this.productTitle = this.routeInfo.snapshot.params["productTitle"];
+  	this.productTitle = this.routeInfo.snapshot.params["prodTitle"];
   }
 
 }
