@@ -12,11 +12,12 @@ import { StarsComponent } from './stars/stars.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { HomeComponent } from './home/home.component';
 import { Routes } from "@angular/router";
+import { ProductService } from "./shared/product.service";
 
 const routeConfig: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'product/:prodTitle', component: ProductDetailComponent}
+  {path: 'product/:prodID', component: ProductDetailComponent}
 ]
 
 @NgModule({
@@ -35,7 +36,9 @@ const routeConfig: Routes = [
     BrowserModule,
     RouterModule.forRoot(routeConfig)
   ],
-  providers: [],
+  providers: [
+    ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
