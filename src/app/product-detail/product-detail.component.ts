@@ -16,6 +16,8 @@ export class ProductDetailComponent implements OnInit {
   newRating: number = 5;
   newComment: string = "";
 
+  isCommentHidden:boolean = true;
+
   constructor(private routeInfo: ActivatedRoute, private prodService: ProductService) { }
 
   ngOnInit() {
@@ -25,7 +27,21 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addComment() {
-    
+    let now = new Date().toISOString();
+    let comment = new Comment(0, this.product.id, now, "sp1", this.newRating, this.newComment);
+    this.comments.unshift(comment);
+
+    // Calculate the new average rating
+    let sum = 0;
+    for (var i = 0; i < this.comments.length; i++) {
+      sum += this.comments[i].rating;
+    }
+    this.product.rating = sum/this.comments.length;
+
+    this.newRating = 5;
+    this.newComment = "";
+    this.isCommentHidden = true;
+
   }
 
 }
