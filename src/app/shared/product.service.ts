@@ -25,6 +25,10 @@ export class ProductService {
 
   }
 
+  getAllCategories(): string[] {
+  	return ["HG", "SMG", "AR", "RF", "MG", "SG"];
+  }
+
   getProducts() {
   		return this.products;
   	}
