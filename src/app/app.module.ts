@@ -16,6 +16,8 @@ import { Routes } from "@angular/router";
 import { ProductService } from "./shared/product.service";
 import { FilterPipe } from './pipe/filter.pipe';
 
+import { HttpModule } from '@angular/http';
+
 const routeConfig: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
@@ -39,7 +41,8 @@ const routeConfig: Routes = [
     BrowserModule,
     RouterModule.forRoot(routeConfig),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [
     ProductService
